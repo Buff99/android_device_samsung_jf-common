@@ -303,6 +303,7 @@
         <item>ehrpd:4094,87380,1048576,4096,16384,262144</item>
     </string-array>
 
+<<<<<<< HEAD
     <!-- Ultrasound support for Mic/speaker path -->
     <!-- Whether the default microphone audio source supports near-ultrasound frequencies
          (range of 18 - 21 kHz). -->
@@ -370,5 +371,8 @@
          hysteresis threshold. -->
     <integer name="config_autoBrightnessBrighteningLightDebounce">0</integer>
     <integer name="config_autoBrightnessDarkeningLightDebounce">0</integer>
+
+    <!-- Keep chosen default camera app pinned in memory for faster launching -->
+    <bool name="config_pinnerCameraApp">true</bool>
 
 </resources>
