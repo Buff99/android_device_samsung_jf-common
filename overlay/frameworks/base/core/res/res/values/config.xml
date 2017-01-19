@@ -213,7 +213,8 @@
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareKeys">83</integer>
+
+     <integer name="config_deviceHardwareKeys">83</integer>
 
     <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -222,6 +223,7 @@
              2 - Back
              4 - Menu
              8 - Assistant (search)
+
             16 - App switch
             32 - Camera
             64 - Volume rocker
@@ -283,4 +285,7 @@
          NOTE: This requires additional hardware-specific code. -->
     <!--bool name="config_ui_blur_enabled">true</bool-->
 
+     <!-- opt out of sensor default batch size - fix accel? --> 
+     <bool name="config_useDefaultBatchingForAccel">false</bool> 
+     
 </resources>
