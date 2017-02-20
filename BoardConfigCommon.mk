@@ -89,9 +89,6 @@ MALLOC_SVELTE := true
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
-# Lockscreen real battery display RR
-BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
-
 # NFC
 BOARD_NFC_HAL_SUFFIX := msm8960
 
@@ -142,3 +139,6 @@ WIFI_BAND := 802_11_ABG
 WIFI_DRIVER_FW_PATH_AP := "/system/etc/wifi/bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/dhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA := "/system/etc/wifi/bcmdhd_sta.bin"
+
+# Lockscreen real battery display RR
+BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
