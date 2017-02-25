@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ART
 dalvik.vm.dex2oat-swap=false
 
@@ -10,6 +11,8 @@ ro.qc.sdk.audio.fluencetype=fluence
 use.dedicated.device.for.voip=true
 use.voice.path.for.pcm.voip=false
 
+# Audio HAL
+audio_hal.force_voice_config=wide
 
 # Bluetooth
 ro.bt.bdaddr_path=/efs/bluetooth/bt_addr
@@ -65,6 +68,15 @@ persist.data_netmgrd_nint=16
 persist.data.qmi.adb_logmask=0
 persist.omh.enabled=1
 persist.radio.add_power_save=1
+
+# RIL
+rild.libargs=-d /dev/ttyS0
+rild.libpath=/system/lib64/libsec-ril.so
+ro.ril.hsxpa=1
+ro.ril.gprsclass=10
+ro.ril.telephony.mqanelements=6
+ro.telephony.default_network=9
+ro.telephony.ril_class=SlteRIL
 persist.radio.apm_sim_not_pwdn=1
 persist.radio.fill_eons=1
 persist.radio.use_se_table_only=1
