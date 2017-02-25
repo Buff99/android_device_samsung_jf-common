@@ -26,7 +26,7 @@
     <bool name="config_hspa_data_distinguishable">true</bool>
    
     <!-- Allow Flashlight service to use wakelock -->
-    <bool name="flashlight_use_wakelock">false</bool>
+    <bool name="flashlight_use_wakelock">true</bool>
      
     <!-- Doze: does this device support STATE_DOZE and STATE_DOZE_SUSPEND?  -->
      <bool name="doze_display_state_supported">true</bool>
