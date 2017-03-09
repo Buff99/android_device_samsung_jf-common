@@ -41,11 +41,19 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>40</item>
+        <item>2</item>
+        <item>7</item>
+        <item>15</item>
+        <item>50</item>
+        <item>100</item>
         <item>200</item>
-        <item>450</item>
-        <item>1400</item>
+        <item>400</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>3000</item>
         <item>5000</item>
+        <item>10000</item>
+        <item>30000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -53,12 +61,20 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>15</item>
-        <item>30</item>
-        <item>55</item>
-        <item>90</item>
-        <item>255</item>
-        <item>255</item>
+        <item>13</item>   <!-- 0-2 -->
+        <item>25</item>   <!-- 3-7 -->
+        <item>32</item>   <!-- 5-15 -->
+        <item>41</item>   <!-- 15-50 -->
+        <item>52</item>   <!-- 50-100 -->
+        <item>62</item>   <!-- 100-200 -->
+        <item>69</item>   <!-- 200-400 -->
+        <item>78</item>   <!-- 400-1000 -->
+        <item>88</item>   <!-- 1000-2000 -->
+        <item>134</item>  <!-- 2000-3000 -->
+        <item>178</item>  <!-- 3000-5000 -->
+        <item>225</item>  <!-- 5000-10000 -->
+        <item>255</item>  <!-- 10000-30000 -->
+        <item>255</item>  <!-- 30000+ -->
     </integer-array>
 
     <!-- Array of output values for button backlight corresponding to the LUX values
@@ -72,6 +88,14 @@
         <item>1</item>
         <item>1</item>
         <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
     </integer-array>
 
     <!-- XXXXX NOTE THE FOLLOWING RESOURCES USE THE WRONG NAMING CONVENTION.
@@ -95,7 +119,7 @@
     </string-array>
 
     <!-- Screen brightness when dozing. -->
-    <integer name="config_screenBrightnessDoze">10</integer>
+    <integer name="config_screenBrightnessDoze">25</integer>
 
     <!-- Minimum allowable screen brightness to use in a very dark room.
          This value sets the floor for the darkest possible auto-brightness
@@ -233,6 +257,9 @@
     <integer name="config_deviceHardwareWakeKeys">65</integer>
 
     <bool name="config_enableWifiDisplay">true</bool>
+    
+    <!-- Our gralloc has support for protected buffers -->
+    <bool name="config_wifiDisplaySupportsProtectedBuffers">true</bool>
 
     <!-- Panel auto-brightness configuration value -->
     <!-- <integer name="config_panelAutoBrightnessValue">1</integer> -->
@@ -282,11 +309,41 @@
          (range of 18 - 21 kHz). -->
     <bool name="config_supportSpeakerNearUltrasound">false</bool>
 
+    <!-- Indicate whether to allow the device to suspend when the screen is off
+         due to the proximity sensor.  This resource should only be set to true
+         if the sensor HAL correctly handles the proximity sensor as a wake-up source.
+         Otherwise, the device may fail to wake out of suspend reliably.
+         The default is false. -->
+    <!-- bool name="config_suspendWhenScreenOffDueToProximity">true</bool -->
+
+    <!-- Boolean indicating if current platform supports bluetooth wide band
+         speech -->
+    <!-- bool name="config_bluetooth_wide_band_speech">false</bool -->
+
+    <!-- Boolean indicating if current platform supports BLE peripheral mode -->
+    <bool name="config_bluetooth_le_peripheral_mode_supported">true</bool>
+    
+    <!-- Boolean indicating whether or not wifi firmware debugging is enabled -->
+    <bool translatable="false" name="config_wifi_enable_wifi_firmware_debugging">false</bool>
+ 
+    <!-- Flag indicating if device supports EAP SIM, AKA, AKA' -->
+    <bool name="config_eap_sim_based_auth_supported">false</bool>
+
+    <!-- Whether to enable Hardware FLP overlay which allows Hardware FLP to be
+         replaced by an app at run-time. When disabled, only the
+         config_hardwareFlpPackageName package will be searched for Hardware Flp,
+         otherwise packages whose signature matches the signatures of
+         config_locationProviderPackageNames will be searched, and the service
+         with the highest version number will be picked. Anyone who wants to
+         disable the overlay mechanism can set it to false.
+         -->
+    <bool name="config_enableHardwareFlpOverlay" translatable="false">false</bool>
+
 <!--   Support in Surfaceflinger for blur layers.
          NOTE: This requires additional hardware-specific code.     -->
        <bool name="config_uiBlurEnabled">true</bool>
 
      <!-- opt out of sensor default batch size - fix accel? --> 
      <bool name="config_useDefaultBatchingForAccel">true</bool> 
-     
+
 </resources>
