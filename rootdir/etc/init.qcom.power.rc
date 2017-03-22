@@ -132,7 +132,7 @@ on enable-low-power
 
     write /sys/devices/platform/msm_sdcc.3/idle_timeout 10
 
-#    write /sys/kernel/fast_charge/force_fast_charge 0
+#    write /sys/kernel/fast_charge/force_fast_charge 2
     write /sys/kernel/fast_charge/usb_charge_level 1000
     write /sys/kernel/fast_charge/ac_charge_level 1900
 #    write /sys/kernel/fast_charge/failsafe 0
