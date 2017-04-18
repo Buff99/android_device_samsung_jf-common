@@ -346,4 +346,7 @@
     <!-- opt out of sensor default batch size - fix accel? --> 
     <bool name="config_useDefaultBatchingForAccel">true</bool> 
 
+    <!-- Disable fading marquee -->
+    <bool name="config_ui_enableFadingMarquee">false</bool>
+
 </resources>
