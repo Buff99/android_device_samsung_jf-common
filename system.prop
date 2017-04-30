@@ -14,6 +14,7 @@ use.voice.path.for.pcm.voip=true
 # Bluetooth
 ro.bt.bdaddr_path=/efs/bluetooth/bt_addr
 ro.qualcomm.bt.hci_transport=smd
+ro.bluetooth.hfp.ver=1.6
 ro.qualcomm.bluetooth.opp=true
 ro.qualcomm.bluetooth.hfp=true
 ro.qualcomm.bluetooth.hsp=true
