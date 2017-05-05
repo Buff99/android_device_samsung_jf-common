@@ -23,6 +23,7 @@ ro.qualcomm.bluetooth.ftp=true
 ro.qualcomm.bluetooth.map=true
 ro.qualcomm.bluetooth.nap=true
 ro.bluetooth.sap=true
+ro.bluetooth.dun=true
 ro.bluetooth.request.master=true
 bluetooth.a2dp.sink.enabled=false
 persist.bluetooth.disableabsvol=true
