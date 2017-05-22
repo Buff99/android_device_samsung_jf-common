@@ -14,21 +14,25 @@ on property:sys.boot_completed=1
 
 # Balance
 on property:persist.spectrum.profile=0
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+    # Speed
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 384000
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1674000
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 384000
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1674000
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 384000
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1674000
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 384000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 1674000
+    # Governor
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
     # GPU
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_pwrlevel 2
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/min_pwrlevel 3
+    write /sys/devices/system/cpu/sched_mc_power_savings 1
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "1674000:100"
 
 # Performance
 on property:persist.spectrum.profile=1
@@ -49,6 +53,8 @@ on property:persist.spectrum.profile=1
     # GPU
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_pwrlevel 1
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/min_pwrlevel 3
+    write /sys/devices/system/cpu/sched_mc_power_savings 1
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "1890000:100"
 
 # Battery
 on property:persist.spectrum.profile=2
@@ -69,6 +75,8 @@ on property:persist.spectrum.profile=2
     # GPU
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_pwrlevel 2
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/min_pwrlevel 3
+    write /sys/devices/system/cpu/sched_mc_power_savings 1
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "1458000:100"
 
 # Gaming
 on property:persist.spectrum.profile=3
@@ -89,4 +97,6 @@ on property:persist.spectrum.profile=3
     # GPU
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_pwrlevel 0
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/min_pwrlevel 3
+    write /sys/devices/system/cpu/sched_mc_power_savings 0
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "1890000:100"
 
