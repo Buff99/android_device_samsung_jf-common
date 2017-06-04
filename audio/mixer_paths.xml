@@ -359,9 +359,9 @@
 
     <path name="speaker">
         <path name="spk" />
-        <ctl name="LINEOUT2 Volume" value="12" />
-        <ctl name="LINEOUT4 Volume" value="12" />
-        <ctl name="RX5 Digital Volume" value="84" />
+        <ctl name="LINEOUT2 Volume" value="8" />
+        <ctl name="LINEOUT4 Volume" value="8" />
+        <ctl name="RX5 Digital Volume" value="82" />
     </path>
 
     <path name="speaker-mic">
