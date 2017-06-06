@@ -1,6 +1,7 @@
 # SPECTRUM KERNEL MANAGER
 # Ramdisk file for profile based kernel management
 # Implimentation inspired by Franco's fku profiles
+# Tweaked by BUFF99 exclusively for BUFF99'S jfltexx Resurrection Remix port
 
 # Initialization
 on property:sys.boot_completed=1
@@ -12,7 +13,7 @@ on property:sys.boot_completed=1
    # Add kernel name
    setprop persist.spectrum.kernel BuffCore
 
-# Balance
+# Balance - Tweaked by BUFF99 exclusively for BUFF99'S jfltexx Resurrection Remix port
 on property:persist.spectrum.profile=0
     # Speed
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 384000
@@ -23,18 +24,21 @@ on property:persist.spectrum.profile=0
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1674000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 384000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 1674000
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "1674000:100"
     # Governor
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
     # GPU
-    write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_pwrlevel 2
+    write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_pwrlevel 1
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/min_pwrlevel 3
+    write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
+    #misc 
     write /sys/devices/system/cpu/sched_mc_power_savings 2
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "1674000:100"
 
-# Performance
+
+# Performance - Tweaked by BUFF99 exclusively for BUFF99'S jfltexx Resurrection Remix port
 on property:persist.spectrum.profile=1
     # Speed
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 384000
@@ -45,18 +49,21 @@ on property:persist.spectrum.profile=1
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1890000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 384000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 1890000
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "1890000:100"
     # Governor
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
     # GPU
-    write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_pwrlevel 1
+    write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_pwrlevel 0
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/min_pwrlevel 3
+    write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
+    #misc 
     write /sys/devices/system/cpu/sched_mc_power_savings 2
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "1890000:100"
 
-# Battery
+
+# Battery - Tweaked by BUFF99 exclusively for BUFF99'S jfltexx Resurrection Remix port
 on property:persist.spectrum.profile=2
     # Speed
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 384000
@@ -67,6 +74,7 @@ on property:persist.spectrum.profile=2
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1458000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 384000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 1458000
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "1458000:100"
     # Governor
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor powersave
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor powersave
@@ -75,10 +83,12 @@ on property:persist.spectrum.profile=2
     # GPU
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_pwrlevel 2
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/min_pwrlevel 3
+    write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
+    #misc 
     write /sys/devices/system/cpu/sched_mc_power_savings 2
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "1458000:100"
 
-# Gaming
+
+# Gaming - Tweaked by BUFF99 exclusively for BUFF99'S jfltexx Resurrection Remix port
 on property:persist.spectrum.profile=3
     # Speed
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 384000
@@ -89,13 +99,15 @@ on property:persist.spectrum.profile=3
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1890000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 384000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 1890000
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "1890000:100"
     # Governor
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor performance
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor performance
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor performance
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor performance
     # GPU
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_pwrlevel 0
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/min_pwrlevel 3
+    write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/trustzone/governor performance
+    #misc 
     write /sys/devices/system/cpu/sched_mc_power_savings 0
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "1890000:100"

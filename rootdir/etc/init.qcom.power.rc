@@ -125,8 +125,8 @@ on enable-low-power
 
     write /sys/module/msm_thermal/core_control/enabled 1
 
-    write /sys/module/cpu_boost/parameters/input_boost_ms 40
-    write /sys/module/cpu_boost/parameters/input_boost_freq 1134000
+    write /sys/module/cpu_boost/parameters/input_boost_ms 30
+    write /sys/module/cpu_boost/parameters/input_boost_freq 810000
 
     write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
 
