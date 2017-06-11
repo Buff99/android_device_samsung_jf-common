@@ -4,5 +4,5 @@
 
 # If there is not a persist value, we need to set one
 if [ ! -f /data/property/persist.spectrum.profile ]; then
-    setprop persist.spectrum.profile 2
+    setprop persist.spectrum.profile 1
 fi
