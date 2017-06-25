@@ -214,5 +214,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
 
+# pow
+PRODUCT_COPY_FILES += \
+$(LOCAL_PATH)/overlay/frameworks/base/core/res/res/xml/power_profile.xml:system/etc/power_profile.xml
+
 # Common Qualcomm
 $(call inherit-product, device/samsung/qcom-common/qcom-common.mk)
