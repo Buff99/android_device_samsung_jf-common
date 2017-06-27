@@ -147,6 +147,7 @@ bin/radish
 # Sensors
 lib/libsam.so
 lib/libsensirion_j1.so
+lib/libgnustl_shared.so
 lib/hw/sensors.msm8960.so
 lib/hw/sensorhubs.msm8960.so
 
