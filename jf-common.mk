@@ -118,10 +118,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     consumerir.msm8960
 
-# Voice processing 
-PRODUCT_PACKAGES += \
-    libqcomvoiceprocessing
-    
 # Keylayouts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/atmel_mxt_ts.kl:system/usr/keylayout/atmel_mxt_ts.kl \
