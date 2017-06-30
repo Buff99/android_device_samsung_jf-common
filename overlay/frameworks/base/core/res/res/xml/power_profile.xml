@@ -17,7 +17,7 @@
         <value>1.23</value>
         <value>1.23</value>
     </array>
-    <array name="cpu.speeds">
+    <array name="cpu.speeds.cluster0">
         <value>1890000</value>
         <value>1782000</value>
         <value>1674000</value>
@@ -35,7 +35,7 @@
         <value>384000</value>
     </array>
     <item name="cpu.idle">4</item>
-    <array name="cpu.active">
+    <array name="cpu.active.cluster0">
         <value>118</value>
         <value>113</value>
         <value>108</value>
@@ -52,7 +52,17 @@
         <value>74</value>
         <value>61</value>
     </array>
+	<array name="cpu.clusters.cores">
+        <value>4</value>
+    </array>
     <item name="battery.capacity">2600</item>
+	<array name="wifi.batchedscan"> <!-- mA -->
+		<value>.0002</value>        <!-- 1-8/hr -->
+		<value>.002</value>         <!-- 9-64/hr -->
+		<value>.02</value>          <!-- 65-512/hr -->
+		<value>.2</value>           <!-- 513-4096/hr -->
+		<value>2</value>            <!-- 4097-/hr -->
+    </array>
     <allow-in-power-save package="com.google.android.gms" />
     <allow-in-data-usage-save package="com.google.android.gms" />
 </device>
