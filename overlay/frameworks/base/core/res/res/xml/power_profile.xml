@@ -2,9 +2,10 @@
 <device name="Android">
     <item name="none">0</item>
     <item name="screen.on">120</item>
-    <item name="bluetooth.active">110</item>
-    <item name="bluetooth.on">0.9</item>
     <item name="screen.full">130</item>
+    <item name="bluetooth.controller.rx">55</item>
+    <item name="bluetooth.controller.tx">55</item>
+    <item name="bluetooth.controller.idle">0.9</item>
     <item name="wifi.on">0.64</item>
     <item name="wifi.active">145</item>
     <item name="wifi.scan">120</item>
