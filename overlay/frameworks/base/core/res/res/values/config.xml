@@ -19,6 +19,7 @@
 
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds. -->
+
 <resources>
 
     <bool name="config_deskDockEnablesAccelerometer">false</bool>
@@ -221,8 +222,7 @@
             4 - Voice Search
             5 - In-app Search
          This needs to match the constants in
-         policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
-    -->
+         policy/src/com/android/internal/policy/impl/PhoneWindowManager.java-->
     <integer name="config_longPressOnHomeBehavior">3</integer>
 
     <!-- Disable the home key unlock setting -->
@@ -254,8 +254,7 @@
             16 - App switch
             32 - Camera
             64 - Volume rocker
-         For example, a device with Home, Back and Menu keys would set this
-         config to 7. -->
+         For example, a device with Home, Back and Menu keys would set this config to 7. -->
     <integer name="config_deviceHardwareWakeKeys">65</integer>
 
     <bool name="config_enableWifiDisplay">true</bool>
@@ -287,8 +286,7 @@
 
     <!-- Configure mobile tcp buffer sizes in the form:
          rat-name:rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max
-         If no value is found for the rat-name in use, the system default will be applied.
-    -->
+         If no value is found for the rat-name in use, the system default will be applied.-->
     <string-array name="config_mobile_tcp_buffers">
         <item>lte:2097152,4194304,8388608,262144,524288,1048576</item>
         <item>lte_ca:2097152,4194304,8388608,262144,524288,1048576</item>
@@ -336,8 +334,7 @@
          otherwise packages whose signature matches the signatures of
          config_locationProviderPackageNames will be searched, and the service
          with the highest version number will be picked. Anyone who wants to
-         disable the overlay mechanism can set it to false.
-         -->
+         disable the overlay mechanism can set it to false.-->
     <bool name="config_enableHardwareFlpOverlay" translatable="false">false</bool>
 
     <!-- Support in Surfaceflinger for blur layers.
@@ -362,7 +359,7 @@
     <!-- Boolean indicating if current platform supports bluetooth wide band speech -->
     <bool name="config_bluetooth_wide_band_speech">true</bool>
     
-      <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
+    <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
          for debouncing the light sensor.  Different constants are used to debounce the light sensor
          when adapting to brighter or darker environments.  This parameter controls how quickly
          brightness changes occur in response to an observed change in light level that exceeds the
@@ -372,5 +369,10 @@
 
     <!-- Keep chosen default camera app pinned in memory for faster launching -->
     <bool name="config_pinnerCameraApp">true</bool>
+
+
+    <!-- If enabled, capacitive keys will only light up when pressed.
+         Otherwise, the buttons will light up whenever the user interacts with the device -->
+    <bool name="config_buttonLightOnKeypressOnly">true</bool>
 
 </resources>
