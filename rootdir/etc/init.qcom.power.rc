@@ -116,9 +116,9 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
     write /sys/module/msm_thermal/core_control/enabled 1
 
-    #config interactive governor @63k#2
-    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "10000 486000:30000 1458000:5000"
-    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 95
+    #config interctive governor
+    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay 0
+    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 98
     write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 918000
     write /sys/devices/system/cpu/cpufreq/interactive/timer_slack 480000
     #    write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
