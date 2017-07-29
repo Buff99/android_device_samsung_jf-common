@@ -115,6 +115,7 @@ on enable-low-power
     write /sys/module/msm_thermal/core_control/enabled 0
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
     write /sys/module/msm_thermal/core_control/enabled 1
+    write /sys/module/msm_thermal/parameters/enabled Y
 
     #config interactive governor @63k#2
     write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "10000 486000:30000 1458000:5000"
