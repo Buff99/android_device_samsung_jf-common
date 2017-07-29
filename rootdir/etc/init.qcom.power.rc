@@ -160,6 +160,6 @@ on property:recovery.perf.mode=0
 
 on property:dev.bootcomplete=1
 #    setprop sys.io.scheduler bfq
-    write /sys/devices/system/cpu/sched_mc_power_savings 2
+#    write /sys/devices/system/cpu/sched_mc_power_savings 2
     rm /data/system/perfd/default_values
     start mpdecision
