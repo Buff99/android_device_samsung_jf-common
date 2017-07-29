@@ -133,6 +133,9 @@ on enable-low-power
 
     write /sys/devices/platform/msm_sdcc.3/idle_timeout 10
 
+    write /sys/module/intelli_plug/parameters/intelli_plug_active 1
+    write /sys/module/intelli_plug/parameters/touch_boost_active 0
+
     # config fastcharge
     write /sys/kernel/fast_charge/force_fast_charge 1
     write /sys/kernel/fast_charge/usb_charge_level 1600
@@ -163,4 +166,5 @@ on property:dev.bootcomplete=1
 #    setprop sys.io.scheduler bfq
 #    write /sys/devices/system/cpu/sched_mc_power_savings 2
     rm /data/system/perfd/default_values
-    start mpdecision
+#    start mpdecision
+
