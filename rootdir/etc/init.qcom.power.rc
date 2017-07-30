@@ -110,11 +110,11 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
 
     write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay 0
-    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 98
-    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 918000
+    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 81
+    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1026000
     write /sys/devices/system/cpu/cpufreq/interactive/timer_slack 480000
 #    write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads 71 486000:74 594000:76 702000:78 810000:79 918000:81 1026000:81 1134000:82 1242000:83 1350000:83 1458000:84 1566000:84 1674000:85 1782000:85
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "71 486000:74 594000:76 702000:78 810000:79 918000:81 1026000:81 1134000:82 1242000:83 1350000:83 1458000:84 1566000:84 1674000:85 1782000:85"
     write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 0
     write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 0
 #    write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 20000
@@ -126,6 +126,10 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 384000
 
     write /sys/module/msm_thermal/core_control/enabled 1
+    write sys/module/msm_thermal/vdd_restriction/enabled 0     
+    write /sys/module/msm_thermal/parameters/enabled Y
+    write /sys/module/intelli_plug/parameters/intelli_plug_active 0
+    write /sys/module/intelli_plug/parameters/touch_boost_active 0
 
 #    write /sys/module/cpu_boost/parameters/input_boost_ms 30
 #    write /sys/module/cpu_boost/parameters/input_boost_freq 810000
@@ -162,6 +166,6 @@ on property:recovery.perf.mode=0
 
 on property:dev.bootcomplete=1
 #    setprop sys.io.scheduler bfq
-    write /sys/devices/system/cpu/sched_mc_power_savings 2
+#    write /sys/devices/system/cpu/sched_mc_power_savings 2
     rm /data/system/perfd/default_values
     start mpdecision
