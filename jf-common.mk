@@ -103,7 +103,7 @@ PRODUCT_PACKAGES += \
 
 # Doze (DO NOT BUILD FOR NOW)
 # PRODUCT_PACKAGES += \
-    SamsungDoze
+#    SamsungDoze
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.conf:/system/etc/gps.conf \
