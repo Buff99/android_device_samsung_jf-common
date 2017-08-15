@@ -101,9 +101,9 @@ PRODUCT_PACKAGES += \
     libgenlock \
     memtrack.msm8960
 
-# Doze (DO NOT BUILD FOR NOW)
-# PRODUCT_PACKAGES += \
-#    SamsungDoze
+# Doze
+PRODUCT_PACKAGES += \
+    SamsungDoze
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.conf:/system/etc/gps.conf \
