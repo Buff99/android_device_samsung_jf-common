@@ -19,7 +19,7 @@
 #define _BDROID_BUILDCFG_H
 
 #define BTM_DEF_LOCAL_NAME   "Optimized LineageOS"
-
+#define BT_HOST_IPC_ENABLED
 #define BTA_DISABLE_DELAY 500 /* in milliseconds */
 
 #define BTM_WBS_INCLUDED TRUE       /* Enable WBS */
