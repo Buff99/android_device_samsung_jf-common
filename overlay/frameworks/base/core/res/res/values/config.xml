@@ -290,7 +290,7 @@
          * The device must be provisioned with HDCP keys (for protected content).
     -->
     <bool name="config_enableWifiDisplay">true</bool>
-    
+
     <!-- Our gralloc has support for protected buffers -->
     <bool name="config_wifiDisplaySupportsProtectedBuffers">true</bool>
 
@@ -347,16 +347,12 @@
          The default is false. -->
     <!-- <bool name="config_suspendWhenScreenOffDueToProximity">true</bool>  -->
 
-    <!-- Boolean indicating if current platform supports bluetooth wide band
-         speech -->
-    <bool name="config_bluetooth_wide_band_speech">true</bool>
-
     <!-- Boolean indicating if current platform supports BLE peripheral mode -->
     <bool name="config_bluetooth_le_peripheral_mode_supported">true</bool>
-    
+
     <!-- Boolean indicating whether or not wifi firmware debugging is enabled -->
     <bool translatable="false" name="config_wifi_enable_wifi_firmware_debugging">false</bool>
- 
+
     <!-- Flag indicating if device supports EAP SIM, AKA, AKA' -->
     <bool name="config_eap_sim_based_auth_supported">false</bool>
 
@@ -373,8 +369,8 @@
          NOTE: This requires additional hardware-specific code.     -->
     <bool name="config_uiBlurEnabled">true</bool>
 
-    <!-- opt out of sensor default batch size - fix accel? --> 
-    <bool name="config_useDefaultBatchingForAccel">true</bool> 
+    <!-- opt out of sensor default batch size - fix accel? -->
+    <bool name="config_useDefaultBatchingForAccel">true</bool>
 
     <!-- Disable fading marquee -->
     <bool name="config_ui_enableFadingMarquee">false</bool>
@@ -389,8 +385,8 @@
     <bool name="config_useRoundIcon">true</bool>
 
     <!-- Boolean indicating if current platform supports bluetooth wide band speech -->
-    <bool name="config_bluetooth_wide_band_speech">true</bool>
-    
+    <bool name="config_bluetooth_wide_band_speech">false</bool>
+
     <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
          for debouncing the light sensor.  Different constants are used to debounce the light sensor
          when adapting to brighter or darker environments.  This parameter controls how quickly
@@ -401,7 +397,6 @@
 
     <!-- Keep chosen default camera app pinned in memory for faster launching -->
     <bool name="config_pinnerCameraApp">true</bool>
-
 
     <!-- If enabled, capacitive keys will only light up when pressed.
          Otherwise, the buttons will light up whenever the user interacts with the device -->
