@@ -186,6 +186,8 @@ PRODUCT_PACKAGES += \
     init.qcom.power.rc \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
+    init.spectrum.rc \
+    init.spectrum.sh \
     ueventd.qcom.rc
 
 # RIL
