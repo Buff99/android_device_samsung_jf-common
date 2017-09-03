@@ -114,7 +114,7 @@ on enable-low-power
     write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 918000
     write /sys/devices/system/cpu/cpufreq/interactive/timer_slack 200000
     write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "71 486000:74 594000:76 702000:78 810000:79 918000:81 1026000:82 1134000:83 1242000:84 1350000:85 1458000:86 1566000:87 1674000:88 1782000:90"
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "72 486000:74 594000:76 702000:78 810000:80 918000:82 1026000:84 1134000:86 1242000:88 1350000:90 1458000:92 1566000:94 1674000:96 1782000:98"
     write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 15000
     write /sys/devices/system/cpu/cpufreq/interactive/boost 0
     write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 0
@@ -136,8 +136,6 @@ on enable-low-power
 
     write /sys/devices/platform/msm_sdcc.3/idle_timeout 10
 
-#    write /sys/module/intelli_plug/parameters/intelli_plug_active 1
-#    write /sys/module/intelli_plug/parameters/touch_boost_active 0
 
     write /sys/module/autosmp/parameters/enabled "Y"
     write /sys/module/autosmp/parameters/max_cpus_screenoff 2
