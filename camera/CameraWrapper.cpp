@@ -102,7 +102,7 @@ static char *camera_get_parameters(struct camera_device *device);
 static int camera_set_parameters(struct camera_device *device,
         const char *params);
 
-const static char * iso_values[] = {"auto,ISO_HJR,ISO100,ISO200,ISO400,ISO800,ISO1600,auto"};
+const static char * iso_values[] = {"auto,ISO_HJR,ISO100,ISO200,ISO400,ISO800,ISO1600"};
 
 static int check_vendor_module()
 {
@@ -123,7 +123,7 @@ static int check_vendor_module()
 static int camera_set_preview_window(struct camera_device *device,
         struct preview_stream_ops *window)
 {
-    
+
     if (!device)
         return -EINVAL;
 
@@ -137,7 +137,7 @@ static void camera_set_callbacks(struct camera_device *device,
         camera_request_memory get_memory,
         void *user)
 {
-    
+
 
     if (!device)
         return;
@@ -149,7 +149,7 @@ static void camera_set_callbacks(struct camera_device *device,
 static void camera_enable_msg_type(struct camera_device *device,
         int32_t msg_type)
 {
-    
+
 
     if (!device)
         return;
@@ -288,7 +288,7 @@ static int camera_set_parameters(struct camera_device *device,
     int id = CAMERA_ID(device);
     CameraParameters _params;
     _params.unflatten(android::String8(params));
-    
+
     // jactive device camera doesn't seem to have recording hint param, so read it safely
     const char* recordingHint = _params.get(android::CameraParameters::KEY_RECORDING_HINT);
     bool isVideo = false;
@@ -310,12 +310,12 @@ static int camera_set_parameters(struct camera_device *device,
         else if(strcmp(isoMode, "ISO1600") == 0)
             _params.set(android::CameraParameters::KEY_ISO_MODE, "1600");
     }
-    
+
     _params.set(android::CameraParameters::KEY_ZSL, isVideo ? "off" : "on");
     _params.set(android::CameraParameters::KEY_CAMERA_MODE, isVideo ? "0" : "1");
 
 	String8 strParams = _params.flatten();
-	
+
 	if (fixed_set_params[id])
 		delete fixed_set_params[id];
     fixed_set_params[id] = strdup(strParams.string());
@@ -338,30 +338,30 @@ static char *camera_get_parameters(struct camera_device *device)
 	int id = CAMERA_ID(device);
 
 	//=============start of fixup
-    
+
     android::CameraParameters _params;
     _params.unflatten(android::String8(params));
-    
+
     // fix params here
     _params.set(android::CameraParameters::KEY_SUPPORTED_ISO_MODES, iso_values[id]);
-    
+
      /* Remove HDR on rear cam */
     if (id != 1) {
         _params.set(android::CameraParameters::KEY_SUPPORTED_SCENE_MODES, "auto,action,night,sunset,party");
     }
-    
+
      /* Enforce video-snapshot-supported to true */
     _params.set(android::CameraParameters::KEY_VIDEO_SNAPSHOT_SUPPORTED, "true");
-    
+
     String8 strParams = _params.flatten();
     char *ret = strdup(strParams.string());
-	
+
     //=============end of fixup
     char * tmp = ret;
-    
+
     VENDOR_CALL(device, put_parameters, params);
     params  = tmp;
-    
+
     return params;
 }
 
@@ -379,9 +379,9 @@ static int camera_send_command(struct camera_device *device,
     if (!device)
         return -EINVAL;
 
-    if(cmd == CAMERA_CMD_ENABLE_FOCUS_MOVE_MSG) 
+    if(cmd == CAMERA_CMD_ENABLE_FOCUS_MOVE_MSG)
         return 0;
-    
+
     return VENDOR_CALL(device, send_command, cmd, arg1, arg2);
 }
 
@@ -420,7 +420,7 @@ static int camera_device_close(hw_device_t *device)
         if (fixed_set_params[i])
             delete fixed_set_params[i];
     }
-    
+
     wrapper_dev = (wrapper_camera_device_t*) device;
 
     wrapper_dev->vendor->common.close((hw_device_t*)wrapper_dev->vendor);
@@ -466,7 +466,7 @@ static int camera_device_open(const hw_module_t *module, const char *name,
             goto fail;
         }
         memset(fixed_set_params, 0, sizeof(char *) * num_cameras);
-        
+
         if (cameraid > num_cameras) {
             rv = -EINVAL;
             goto fail;
@@ -490,7 +490,7 @@ static int camera_device_open(const hw_module_t *module, const char *name,
             if (retry)
                 usleep(OPEN_RETRY_MSEC * 1000);
         } while (retry);
-      
+
         if (rv) {
             goto fail;
         }
