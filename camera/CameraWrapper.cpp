@@ -102,7 +102,7 @@ static char *camera_get_parameters(struct camera_device *device);
 static int camera_set_parameters(struct camera_device *device,
         const char *params);
 
-const static char * iso_values[] = {"auto,ISO_HJR,ISO100,ISO200,ISO400,ISO800,ISO1600"};
+const static char * iso_values[] = {"auto,ISO_HJR,ISO100,ISO200,ISO400,ISO800,ISO1600,auto"};
 
 static int check_vendor_module()
 {
@@ -311,20 +311,18 @@ static int camera_set_parameters(struct camera_device *device,
             _params.set(android::CameraParameters::KEY_ISO_MODE, "1600");
     }
     
-    if (id != 1) {
-	_params.set(android::CameraParameters::KEY_ZSL, isVideo ? "off" : "on");
-	_params.set(android::CameraParameters::KEY_CAMERA_MODE, isVideo ? "0" : "1");
-    }
-    
-    String8 strParams = _params.flatten();
+    _params.set(android::CameraParameters::KEY_ZSL, isVideo ? "off" : "on");
+    _params.set(android::CameraParameters::KEY_CAMERA_MODE, isVideo ? "0" : "1");
+
+	String8 strParams = _params.flatten();
 	
-    if (fixed_set_params[id])
+	if (fixed_set_params[id])
 		delete fixed_set_params[id];
     fixed_set_params[id] = strdup(strParams.string());
 
     char *tmp = fixed_set_params[id];
 
-    int ret = VENDOR_CALL(device, set_parameters, tmp);
+	int ret = VENDOR_CALL(device, set_parameters, tmp);
     return ret;
 
 }
@@ -347,10 +345,10 @@ static char *camera_get_parameters(struct camera_device *device)
     // fix params here
     _params.set(android::CameraParameters::KEY_SUPPORTED_ISO_MODES, iso_values[id]);
     
-    /* Exposure */
-    _params.set(android::CameraParameters::KEY_EXPOSURE_COMPENSATION_STEP, "0.5");
-    _params.set(android::CameraParameters::KEY_MIN_EXPOSURE_COMPENSATION, "-4");
-    _params.set(android::CameraParameters::KEY_MAX_EXPOSURE_COMPENSATION, "4");
+     /* Remove HDR on rear cam */
+    if (id != 1) {
+        _params.set(android::CameraParameters::KEY_SUPPORTED_SCENE_MODES, "auto,action,night,sunset,party");
+    }
     
      /* Enforce video-snapshot-supported to true */
     _params.set(android::CameraParameters::KEY_VIDEO_SNAPSHOT_SUPPORTED, "true");
