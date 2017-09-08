@@ -27,12 +27,12 @@ on property:persist.spectrum.profile=0
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
-    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "10000 918000:20000 1566000:5000"
+    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "20000 1566000:10000"
     write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 98
-    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 810000
-    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack 80000
+    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 918000
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack -1
     write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "50 216000:33 270000:83 324000:20 378000:98 384000:2 486000:27 594000:22 702000:18 810000:88 918000:89 1026000:12 1134000:11 1242000:92 1350000:9 1458000:8 1566000:94 1674000:94 1782000:6 1890000:95"
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "50 216000:33 270000:83 324000:20 378000:94 384000:2 486000:27 594000:22 702000:82 810000:15 918000:94 1026000:90 1134000:11 1242000:85 1350000:91 1458000:92 1566000:98 1674000:94 1782000:95"
     write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 15000
     write /sys/devices/system/cpu/cpufreq/interactive/boost 0
     write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 0
@@ -47,7 +47,7 @@ on property:persist.spectrum.profile=0
     # Autosmp
     write /sys/module/autosmp/parameters/enabled "Y"
     write /sys/module/autosmp/parameters/max_cpus_screenoff 2
-    write /sys/kernel/autosmp/conf/boost_lock_duration 500
+    write /sys/kernel/autosmp/conf/boost_lock_duration 50
     write /sys/kernel/autosmp/conf/cpufreq_down 60
     write /sys/kernel/autosmp/conf/cpufreq_up 76
     write /sys/kernel/autosmp/conf/cpus_boosted 2
@@ -55,7 +55,7 @@ on property:persist.spectrum.profile=0
     write /sys/kernel/autosmp/conf/cycle_up 1
     write /sys/kernel/autosmp/conf/delay 20
     write /sys/kernel/autosmp/conf/max_cpus 4
-    write /sys/kernel/autosmp/conf/min_boost_freq 810000
+    write /sys/kernel/autosmp/conf/min_boost_freq 918000
     write /sys/kernel/autosmp/conf/min_cpus 1
     # GPU
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_pwrlevel 1
@@ -77,12 +77,12 @@ on property:persist.spectrum.profile=1
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
-    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "10000 918000:20000 1566000:5000"
+    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "20000 1566000:10000"
     write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 98
-    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 810000
-    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack 80000
+    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 918000
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack -1
     write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "50 216000:33 270000:83 324000:20 378000:98 384000:2 486000:27 594000:22 702000:18 810000:88 918000:89 1026000:12 1134000:11 1242000:92 1350000:9 1458000:8 1566000:94 1674000:94 1782000:6 1890000:95"
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "50 216000:33 270000:83 324000:20 378000:94 384000:2 486000:27 594000:22 702000:82 810000:15 918000:94 1026000:90 1134000:11 1242000:85 1350000:91 1458000:92 1566000:98 1674000:94 1782000:95"
     write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 15000
     write /sys/devices/system/cpu/cpufreq/interactive/boost 0
     write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 0
@@ -97,7 +97,7 @@ on property:persist.spectrum.profile=1
     # Autosmp
     write /sys/module/autosmp/parameters/enabled "Y"
     write /sys/module/autosmp/parameters/max_cpus_screenoff 2
-    write /sys/kernel/autosmp/conf/boost_lock_duration 500
+    write /sys/kernel/autosmp/conf/boost_lock_duration 50
     write /sys/kernel/autosmp/conf/cpufreq_down 60
     write /sys/kernel/autosmp/conf/cpufreq_up 76
     write /sys/kernel/autosmp/conf/cpus_boosted 2
@@ -105,7 +105,7 @@ on property:persist.spectrum.profile=1
     write /sys/kernel/autosmp/conf/cycle_up 1
     write /sys/kernel/autosmp/conf/delay 20
     write /sys/kernel/autosmp/conf/max_cpus 4
-    write /sys/kernel/autosmp/conf/min_boost_freq 810000
+    write /sys/kernel/autosmp/conf/min_boost_freq 918000
     write /sys/kernel/autosmp/conf/min_cpus 1
     # GPU
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_pwrlevel 0
@@ -128,12 +128,22 @@ on property:persist.spectrum.profile=2
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
-    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "10000 918000:20000 1566000:5000"
+    # Speed
+    write /sys/module/msm_thermal/core_control/enabled 0
+    write /sys/devices/system/cpu/cpu0/online 1
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu2/online 1
+    write /sys/devices/system/cpu/cpu3/online 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "20000 1566000:10000"
     write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 98
-    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 810000
-    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack 80000
+    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 918000
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack -1
     write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "50 216000:33 270000:83 324000:20 378000:98 384000:2 486000:27 594000:22 702000:18 810000:88 918000:89 1026000:12 1134000:11 1242000:92 1350000:9 1458000:8 1566000:94 1674000:94 1782000:6 1890000:95"
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "50 216000:33 270000:83 324000:20 378000:94 384000:2 486000:27 594000:22 702000:82 810000:15 918000:94 1026000:90 1134000:11 1242000:85 1350000:91 1458000:92 1566000:98 1674000:94 1782000:95"
     write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 15000
     write /sys/devices/system/cpu/cpufreq/interactive/boost 0
     write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 0
@@ -148,7 +158,7 @@ on property:persist.spectrum.profile=2
     # Autosmp
     write /sys/module/autosmp/parameters/enabled "Y"
     write /sys/module/autosmp/parameters/max_cpus_screenoff 2
-    write /sys/kernel/autosmp/conf/boost_lock_duration 500
+    write /sys/kernel/autosmp/conf/boost_lock_duration 50
     write /sys/kernel/autosmp/conf/cpufreq_down 60
     write /sys/kernel/autosmp/conf/cpufreq_up 76
     write /sys/kernel/autosmp/conf/cpus_boosted 2
@@ -156,7 +166,7 @@ on property:persist.spectrum.profile=2
     write /sys/kernel/autosmp/conf/cycle_up 1
     write /sys/kernel/autosmp/conf/delay 20
     write /sys/kernel/autosmp/conf/max_cpus 4
-    write /sys/kernel/autosmp/conf/min_boost_freq 810000
+    write /sys/kernel/autosmp/conf/min_boost_freq 918000
     write /sys/kernel/autosmp/conf/min_cpus 1
     # GPU
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_pwrlevel 2
@@ -179,12 +189,22 @@ on property:persist.spectrum.profile=3
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor performance
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor performance
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor performance
-    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "10000 918000:20000 1566000:5000"
+    # Speed
+    write /sys/module/msm_thermal/core_control/enabled 0
+    write /sys/devices/system/cpu/cpu0/online 1
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu2/online 1
+    write /sys/devices/system/cpu/cpu3/online 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "20000 1566000:10000"
     write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 98
-    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 810000
-    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack 80000
+    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 918000
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack -1
     write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "50 216000:33 270000:83 324000:20 378000:98 384000:2 486000:27 594000:22 702000:18 810000:88 918000:89 1026000:12 1134000:11 1242000:92 1350000:9 1458000:8 1566000:94 1674000:94 1782000:6 1890000:95"
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "50 216000:33 270000:83 324000:20 378000:94 384000:2 486000:27 594000:22 702000:82 810000:15 918000:94 1026000:90 1134000:11 1242000:85 1350000:91 1458000:92 1566000:98 1674000:94 1782000:95"
     write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 15000
     write /sys/devices/system/cpu/cpufreq/interactive/boost 0
     write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 0
@@ -199,7 +219,7 @@ on property:persist.spectrum.profile=3
     # Autosmp
     write /sys/module/autosmp/parameters/enabled "N"
     write /sys/module/autosmp/parameters/max_cpus_screenoff 2
-    write /sys/kernel/autosmp/conf/boost_lock_duration 500
+    write /sys/kernel/autosmp/conf/boost_lock_duration 50
     write /sys/kernel/autosmp/conf/cpufreq_down 60
     write /sys/kernel/autosmp/conf/cpufreq_up 76
     write /sys/kernel/autosmp/conf/cpus_boosted 2
@@ -207,7 +227,7 @@ on property:persist.spectrum.profile=3
     write /sys/kernel/autosmp/conf/cycle_up 1
     write /sys/kernel/autosmp/conf/delay 20
     write /sys/kernel/autosmp/conf/max_cpus 4
-    write /sys/kernel/autosmp/conf/min_boost_freq 810000
+    write /sys/kernel/autosmp/conf/min_boost_freq 918000
     write /sys/kernel/autosmp/conf/min_cpus 1
     # GPU
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_pwrlevel 0
