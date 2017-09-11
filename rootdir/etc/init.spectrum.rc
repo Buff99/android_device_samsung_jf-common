@@ -13,7 +13,7 @@ on property:sys.boot_completed=1
    # Add kernel name
    setprop persist.spectrum.kernel BuffCore
 
-# Balance - slightly slower than stock, slightly better battery.
+# Balance - same as default non-spectrum, slightly better battery.
 # Tweaked exclusively for BUFF99'S jfltexx Resurrection Remix port
 #
 on property:persist.spectrum.profile=0
@@ -45,7 +45,7 @@ on property:persist.spectrum.profile=0
     write /sys/module/msm_thermal/core_control/enabled 1
     write /sys/module/msm_thermal/parameters/enabled Y
     # Autosmp
-    write /sys/module/autosmp/parameters/enabled "Y"
+    write /sys/module/autosmp/parameters/enabled "N"
     write /sys/module/autosmp/parameters/max_cpus_screenoff 2
     write /sys/kernel/autosmp/conf/boost_lock_duration 50
     write /sys/kernel/autosmp/conf/cpufreq_down 60
@@ -63,7 +63,7 @@ on property:persist.spectrum.profile=0
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
     #misc
 
-# Performance - the default Buff99 profile - closest to stock.
+# Performance - default tweaked to use more full speed.
 # Tweaked exclusively for BUFF99'S jfltexx Resurrection Remix port
 #
 on property:persist.spectrum.profile=1
@@ -95,7 +95,7 @@ on property:persist.spectrum.profile=1
     write /sys/module/msm_thermal/core_control/enabled 1
     write /sys/module/msm_thermal/parameters/enabled Y
     # Autosmp
-    write /sys/module/autosmp/parameters/enabled "Y"
+    write /sys/module/autosmp/parameters/enabled "N"
     write /sys/module/autosmp/parameters/max_cpus_screenoff 2
     write /sys/kernel/autosmp/conf/boost_lock_duration 50
     write /sys/kernel/autosmp/conf/cpufreq_down 60
@@ -156,7 +156,7 @@ on property:persist.spectrum.profile=2
     write /sys/module/msm_thermal/core_control/enabled 1
     write /sys/module/msm_thermal/parameters/enabled Y
     # Autosmp
-    write /sys/module/autosmp/parameters/enabled "Y"
+    write /sys/module/autosmp/parameters/enabled "N"
     write /sys/module/autosmp/parameters/max_cpus_screenoff 2
     write /sys/kernel/autosmp/conf/boost_lock_duration 50
     write /sys/kernel/autosmp/conf/cpufreq_down 60
