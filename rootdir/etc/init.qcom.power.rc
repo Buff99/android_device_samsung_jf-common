@@ -137,7 +137,7 @@ on enable-low-power
     write /sys/devices/platform/msm_sdcc.3/idle_timeout 10
 
 
-    write /sys/module/autosmp/parameters/enabled "Y"
+    write /sys/module/autosmp/parameters/enabled "N"
     write /sys/module/autosmp/parameters/max_cpus_screenoff 2
     write /sys/kernel/autosmp/conf/boost_lock_duration 50
     write /sys/kernel/autosmp/conf/cpufreq_down 60
@@ -183,4 +183,4 @@ on property:dev.bootcomplete=1
 #    setprop sys.io.scheduler bfq
 #    write /sys/devices/system/cpu/sched_mc_power_savings 2
     rm /data/system/perfd/default_values
-#    start mpdecision
+    start mpdecision
