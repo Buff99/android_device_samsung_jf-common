@@ -13,7 +13,7 @@ on property:sys.boot_completed=1
    # Add kernel name
    setprop persist.spectrum.kernel BuffCore
 
-# Balance - same as default non-spectrum, slightly better battery.
+# Balance - same as default non-spectrum.
 # Tweaked exclusively for BUFF99'S jfltexx Resurrection Remix port
 #
 on property:persist.spectrum.profile=0
@@ -38,12 +38,23 @@ on property:persist.spectrum.profile=0
     write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 0
     write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 20000
     write /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1890000
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1890000
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1890000
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 1890000
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 270000
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 270000
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 270000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 270000
     write /sys/module/msm_thermal/core_control/enabled 1
 #    write /sys/module/msm_thermal/parameters/enabled Y
+    write /sys/module/cpu_boost/parameters/cpu_boost N
+    write /sys/module/cpu_boost/parameters/cpuboost_enable N
+    write /sys/module/cpu_boost/parameters/boost_ms 20
+    write /sys/module/cpu_boost/parameters/input_boost_ms 40
+    write /sys/module/cpu_boost/parameters/sync_threshold 1566000
+    write /sys/module/cpu_boost/parameters/input_boost_freq 1458000
+    write /sys/module/cpu_boost/parameters/load_based_syncs 1
     # Autosmp
     write /sys/module/autosmp/parameters/enabled "N"
     write /sys/module/autosmp/parameters/max_cpus_screenoff 2
@@ -63,7 +74,7 @@ on property:persist.spectrum.profile=0
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
     #misc
 
-# Performance - default tweaked to use more full speed.
+# Performance - default / stock JF tweaked to use more full speed.
 # Tweaked exclusively for BUFF99'S jfltexx Resurrection Remix port
 #
 on property:persist.spectrum.profile=1
@@ -77,23 +88,35 @@ on property:persist.spectrum.profile=1
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
-    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "20000 1566000:10000"
-    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 98
-    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 918000
-    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack -1
-    write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "50 216000:33 270000:83 324000:20 378000:94 384000:2 486000:27 594000:22 702000:82 810000:15 918000:94 1026000:90 1134000:11 1242000:85 1350000:91 1458000:92 1566000:98 1674000:94 1782000:95"
-    write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 15000
+    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "19000 1400000:39000 1700000:19000"
+    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 90
+    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1134000
+
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_slack 80000
     write /sys/devices/system/cpu/cpufreq/interactive/boost 0
-    write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 0
+    write /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration 80000
+
+    write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "85 1500000:90 1800000:70"
+    write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 39000
+    write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 99000
     write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 20000
-    write /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1890000
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1890000
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1890000
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 1890000
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 270000
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 270000
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 270000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 270000
     write /sys/module/msm_thermal/core_control/enabled 1
 #    write /sys/module/msm_thermal/parameters/enabled Y
+    write /sys/module/cpu_boost/parameters/cpu_boost Y
+    write /sys/module/cpu_boost/parameters/cpuboost_enable Y
+    write /sys/module/cpu_boost/parameters/boost_ms 20
+    write /sys/module/cpu_boost/parameters/input_boost_ms 40
+    write /sys/module/cpu_boost/parameters/sync_threshold 1566000
+    write /sys/module/cpu_boost/parameters/input_boost_freq 1458000
     # Autosmp
     write /sys/module/autosmp/parameters/enabled "N"
     write /sys/module/autosmp/parameters/max_cpus_screenoff 2
@@ -128,23 +151,33 @@ on property:persist.spectrum.profile=2
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
-    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "20000 1566000:10000"
+    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "20000 1026000:10000"
     write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 98
     write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 918000
     write /sys/devices/system/cpu/cpufreq/interactive/timer_slack -1
     write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "50 216000:33 270000:83 324000:20 378000:94 384000:2 486000:27 594000:22 702000:82 810000:15 918000:94 1026000:90 1134000:11 1242000:85 1350000:91 1458000:92 1566000:98 1674000:94 1782000:95"
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "50 216000:33 270000:83 324000:20 378000:94 384000:2 486000:27 594000:22 702000:82 810000:15 918000:94 1026000:90 1134000:11 1242000:85 1350000:91 1458000:92 1566000:98 1674000:2 1782000:2 1890000:2"
     write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 15000
     write /sys/devices/system/cpu/cpufreq/interactive/boost 0
     write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 0
     write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 20000
     write /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1566000
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1566000
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1566000
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 1566000
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 270000
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 270000
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 270000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 270000
     write /sys/module/msm_thermal/core_control/enabled 1
 #    write /sys/module/msm_thermal/parameters/enabled Y
+    write /sys/module/cpu_boost/parameters/cpu_boost N
+    write /sys/module/cpu_boost/parameters/cpuboost_enable N
+    write /sys/module/cpu_boost/parameters/boost_ms 20
+    write /sys/module/cpu_boost/parameters/input_boost_ms 40
+    write /sys/module/cpu_boost/parameters/sync_threshold 1566000
+    write /sys/module/cpu_boost/parameters/input_boost_freq 1458000
     # Autosmp
     write /sys/module/autosmp/parameters/enabled "N"
     write /sys/module/autosmp/parameters/max_cpus_screenoff 2
@@ -190,12 +223,22 @@ on property:persist.spectrum.profile=3
     write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 0
     write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 20000
     write /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1890000
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1890000
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1890000
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 1890000
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 270000
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 270000
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 270000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 270000
     write /sys/module/msm_thermal/core_control/enabled 1
 #    write /sys/module/msm_thermal/parameters/enabled Y
+    write /sys/module/cpu_boost/parameters/cpu_boost N
+    write /sys/module/cpu_boost/parameters/cpuboost_enable N
+    write /sys/module/cpu_boost/parameters/boost_ms 20
+    write /sys/module/cpu_boost/parameters/input_boost_ms 40
+    write /sys/module/cpu_boost/parameters/sync_threshold 1566000
+    write /sys/module/cpu_boost/parameters/input_boost_freq 1458000
     # Autosmp
     write /sys/module/autosmp/parameters/enabled "N"
     write /sys/module/autosmp/parameters/max_cpus_screenoff 2
