@@ -121,6 +121,10 @@ on enable-low-power
     write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 20000
     write /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration 0
 
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1890000
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1890000
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1890000
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 1890000
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 270000
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 270000
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 270000
@@ -176,10 +180,6 @@ on property:recovery.perf.mode=0
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
 
 on property:dev.bootcomplete=1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1890000
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1890000
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1890000
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 1890000
 #    setprop sys.io.scheduler bfq
 #    write /sys/devices/system/cpu/sched_mc_power_savings 2
     rm /data/system/perfd/default_values
