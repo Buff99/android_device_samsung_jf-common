@@ -19,6 +19,7 @@ on property:sys.boot_completed=1
 on property:persist.spectrum.profile=0
     # Speed
     write /sys/module/msm_thermal/core_control/enabled 0
+    stop mpdecision
     write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
@@ -47,18 +48,18 @@ on property:persist.spectrum.profile=0
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 270000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 270000
     write /sys/module/msm_thermal/core_control/enabled 1
-#    write /sys/module/msm_thermal/parameters/enabled Y
+    write /sys/module/msm_thermal/parameters/enabled Y
     write /sys/module/cpu_boost/parameters/cpu_boost N
     write /sys/module/cpu_boost/parameters/cpuboost_enable N
-    write /sys/module/cpu_boost/parameters/boost_ms 20
-    write /sys/module/cpu_boost/parameters/input_boost_ms 40
-    write /sys/module/cpu_boost/parameters/sync_threshold 1566000
-    write /sys/module/cpu_boost/parameters/input_boost_freq 1458000
-    write /sys/module/cpu_boost/parameters/load_based_syncs 1
+    write /sys/module/cpu_boost/parameters/boost_ms 0
+    write /sys/module/cpu_boost/parameters/input_boost_ms 0
+    write /sys/module/cpu_boost/parameters/sync_threshold 0
+    write /sys/module/cpu_boost/parameters/input_boost_freq 0
+    write /sys/module/cpu_boost/parameters/load_based_syncs 0
     # Autosmp
-    write /sys/module/autosmp/parameters/enabled "N"
+    write /sys/module/autosmp/parameters/enabled "Y"
     write /sys/module/autosmp/parameters/max_cpus_screenoff 2
-    write /sys/kernel/autosmp/conf/boost_lock_duration 50
+    write /sys/kernel/autosmp/conf/boost_lock_duration 100
     write /sys/kernel/autosmp/conf/cpufreq_down 60
     write /sys/kernel/autosmp/conf/cpufreq_up 76
     write /sys/kernel/autosmp/conf/cpus_boosted 2
@@ -73,6 +74,7 @@ on property:persist.spectrum.profile=0
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/min_pwrlevel 3
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
     #misc
+
 
 # Performance - default / stock JF tweaked to use more full speed.
 # Tweaked exclusively for BUFF99'S jfltexx Resurrection Remix port
@@ -120,7 +122,7 @@ on property:persist.spectrum.profile=1
     # Autosmp
     write /sys/module/autosmp/parameters/enabled "N"
     write /sys/module/autosmp/parameters/max_cpus_screenoff 2
-    write /sys/kernel/autosmp/conf/boost_lock_duration 50
+    write /sys/kernel/autosmp/conf/boost_lock_duration 100
     write /sys/kernel/autosmp/conf/cpufreq_down 60
     write /sys/kernel/autosmp/conf/cpufreq_up 76
     write /sys/kernel/autosmp/conf/cpus_boosted 2
@@ -135,6 +137,7 @@ on property:persist.spectrum.profile=1
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/min_pwrlevel 3
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
     #misc
+    start mpdecision
 
 
 # Battery - Slower and battery tuned
@@ -143,6 +146,7 @@ on property:persist.spectrum.profile=1
 on property:persist.spectrum.profile=2
     # Speed
     write /sys/module/msm_thermal/core_control/enabled 0
+    stop mpdecision
     write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
@@ -171,17 +175,18 @@ on property:persist.spectrum.profile=2
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 270000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 270000
     write /sys/module/msm_thermal/core_control/enabled 1
-#    write /sys/module/msm_thermal/parameters/enabled Y
+    write /sys/module/msm_thermal/parameters/enabled Y
     write /sys/module/cpu_boost/parameters/cpu_boost N
     write /sys/module/cpu_boost/parameters/cpuboost_enable N
-    write /sys/module/cpu_boost/parameters/boost_ms 20
-    write /sys/module/cpu_boost/parameters/input_boost_ms 40
-    write /sys/module/cpu_boost/parameters/sync_threshold 1566000
-    write /sys/module/cpu_boost/parameters/input_boost_freq 1458000
+    write /sys/module/cpu_boost/parameters/boost_ms 0
+    write /sys/module/cpu_boost/parameters/input_boost_ms 0
+    write /sys/module/cpu_boost/parameters/sync_threshold 0
+    write /sys/module/cpu_boost/parameters/input_boost_freq 0
+    write /sys/module/cpu_boost/parameters/load_based_syncs 0
     # Autosmp
-    write /sys/module/autosmp/parameters/enabled "N"
+    write /sys/module/autosmp/parameters/enabled "Y"
     write /sys/module/autosmp/parameters/max_cpus_screenoff 2
-    write /sys/kernel/autosmp/conf/boost_lock_duration 50
+    write /sys/kernel/autosmp/conf/boost_lock_duration 100
     write /sys/kernel/autosmp/conf/cpufreq_down 60
     write /sys/kernel/autosmp/conf/cpufreq_up 76
     write /sys/kernel/autosmp/conf/cpus_boosted 2
@@ -204,6 +209,7 @@ on property:persist.spectrum.profile=2
 on property:persist.spectrum.profile=3
     # Speed
     write /sys/module/msm_thermal/core_control/enabled 0
+    stop mpdecision
     write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
@@ -232,17 +238,18 @@ on property:persist.spectrum.profile=3
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 270000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 270000
     write /sys/module/msm_thermal/core_control/enabled 1
-#    write /sys/module/msm_thermal/parameters/enabled Y
+    write /sys/module/msm_thermal/parameters/enabled Y
     write /sys/module/cpu_boost/parameters/cpu_boost N
     write /sys/module/cpu_boost/parameters/cpuboost_enable N
-    write /sys/module/cpu_boost/parameters/boost_ms 20
-    write /sys/module/cpu_boost/parameters/input_boost_ms 40
-    write /sys/module/cpu_boost/parameters/sync_threshold 1566000
-    write /sys/module/cpu_boost/parameters/input_boost_freq 1458000
+    write /sys/module/cpu_boost/parameters/boost_ms 0
+    write /sys/module/cpu_boost/parameters/input_boost_ms 0
+    write /sys/module/cpu_boost/parameters/sync_threshold 0
+    write /sys/module/cpu_boost/parameters/input_boost_freq 0
+    write /sys/module/cpu_boost/parameters/load_based_syncs 0
     # Autosmp
     write /sys/module/autosmp/parameters/enabled "N"
     write /sys/module/autosmp/parameters/max_cpus_screenoff 2
-    write /sys/kernel/autosmp/conf/boost_lock_duration 50
+    write /sys/kernel/autosmp/conf/boost_lock_duration 100
     write /sys/kernel/autosmp/conf/cpufreq_down 60
     write /sys/kernel/autosmp/conf/cpufreq_up 76
     write /sys/kernel/autosmp/conf/cpus_boosted 2
