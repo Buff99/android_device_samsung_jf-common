@@ -146,8 +146,8 @@ on enable-low-power
     write /sys/module/autosmp/parameters/enabled "Y"
     write /sys/module/autosmp/parameters/max_cpus_screenoff 2
     write /sys/kernel/autosmp/conf/boost_lock_duration 100
-    write /sys/kernel/autosmp/conf/cpufreq_down 60
-    write /sys/kernel/autosmp/conf/cpufreq_up 76
+    write /sys/kernel/autosmp/conf/cpufreq_down 50
+    write /sys/kernel/autosmp/conf/cpufreq_up 70
     write /sys/kernel/autosmp/conf/cpus_boosted 2
     write /sys/kernel/autosmp/conf/cycle_down 2
     write /sys/kernel/autosmp/conf/cycle_up 1
