@@ -18,7 +18,7 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-#define BTM_DEF_LOCAL_NAME   "Optimized LineageOS"
+#define BTM_DEF_LOCAL_NAME   "ResurrectionRemix-S4-Buff"
 #define BT_HOST_IPC_ENABLED
 #define BTA_DISABLE_DELAY 500 /* in milliseconds */
 
