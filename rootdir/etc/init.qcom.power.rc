@@ -132,9 +132,19 @@ on enable-low-power
 
     write /sys/module/msm_thermal/core_control/enabled 1
 
+    write /sys/module/cpu_boost/parameters/cpu_boost N
+    write /sys/module/cpu_boost/parameters/cpuboost_enable N
+    write /sys/module/cpu_boost/parameters/boost_ms 0
+    write /sys/module/cpu_boost/parameters/input_boost_ms 0
+    write /sys/module/cpu_boost/parameters/sync_threshold 0
+    write /sys/module/cpu_boost/parameters/input_boost_freq 0
+    write /sys/module/cpu_boost/parameters/load_based_syncs 0
+
 #    write /sys/module/cpu_boost/parameters/input_boost_ms 30
 #    write /sys/module/cpu_boost/parameters/input_boost_freq 810000
 
+    write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_pwrlevel 0
+    write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/min_pwrlevel 3
     write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
 
     write /sys/devices/platform/msm_sdcc.3/idle_timeout 10
