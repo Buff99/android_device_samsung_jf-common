@@ -109,18 +109,18 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
 
+    # Interactive Gov
     write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "20000 1566000:10000"
     write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 98
     write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 918000
     write /sys/devices/system/cpu/cpufreq/interactive/timer_slack -1
     write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "50 216000:33 270000:83 324000:20 378000:94 384000:2 486000:27 594000:22 702000:82 810000:15 918000:94 1026000:90 1134000:11 1242000:85 1350000:91 1458000:92 1566000:98 1674000:94 1782000:95"
+    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "50 216000:33 270000:83 324000:20 378000:94 384000:2 486000:27 594000:22 702000:82 810000:15 918000:94 1026000:90 1134000:11 1242000:84 1350000:85 1458000:86 1566000:87 1674000:88 1782000:90""
     write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 15000
     write /sys/devices/system/cpu/cpufreq/interactive/boost 0
     write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 0
     write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 20000
     write /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration 0
-
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1890000
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1890000
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1890000
@@ -131,7 +131,9 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 270000
 
     write /sys/module/msm_thermal/core_control/enabled 1
+#    write /sys/module/msm_thermal/parameters/enabled Y
 
+    # CPU_boost
     write /sys/module/cpu_boost/parameters/cpu_boost N
     write /sys/module/cpu_boost/parameters/cpuboost_enable N
     write /sys/module/cpu_boost/parameters/boost_ms 0
@@ -140,21 +142,19 @@ on enable-low-power
     write /sys/module/cpu_boost/parameters/input_boost_freq 0
     write /sys/module/cpu_boost/parameters/load_based_syncs 0
 
-#    write /sys/module/cpu_boost/parameters/input_boost_ms 30
-#    write /sys/module/cpu_boost/parameters/input_boost_freq 810000
-
+    # GPU
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_pwrlevel 0
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/min_pwrlevel 3
-    write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
+    write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
 
     write /sys/devices/platform/msm_sdcc.3/idle_timeout 10
 
-
+    # Autosmp
     write /sys/module/autosmp/parameters/enabled "Y"
     write /sys/module/autosmp/parameters/max_cpus_screenoff 2
     write /sys/kernel/autosmp/conf/boost_lock_duration 100
-    write /sys/kernel/autosmp/conf/cpufreq_down 50
-    write /sys/kernel/autosmp/conf/cpufreq_up 70
+    write /sys/kernel/autosmp/conf/cpufreq_down 60
+    write /sys/kernel/autosmp/conf/cpufreq_up 76
     write /sys/kernel/autosmp/conf/cpus_boosted 2
     write /sys/kernel/autosmp/conf/cycle_down 2
     write /sys/kernel/autosmp/conf/cycle_up 1
@@ -163,6 +163,7 @@ on enable-low-power
     write /sys/kernel/autosmp/conf/min_boost_freq 918000
     write /sys/kernel/autosmp/conf/min_cpus 1
 
+    # Fastcharge
     write /sys/kernel/fast_charge/force_fast_charge 1
     write /sys/kernel/fast_charge/usb_charge_level 1600
     write /sys/kernel/fast_charge/ac_charge_level 1900
