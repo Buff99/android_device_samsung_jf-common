@@ -28,6 +28,10 @@
 #define PANEL_MAX_BRIGHTNESS_NODE "/sys/class/leds/lcd-backlight/max_brightness"
 #define BUTTON_BRIGHTNESS_NODE "/sys/class/leds/button-backlight/brightness"
 #define LED_BLINK_NODE "/sys/class/sec/led/led_blink"
+#define LED_BLN_NODE "/sys/class/misc/backlightnotification/notification_led"
+
+// Set to 1 to enable variable button brightness
+#define VAR_BUTTON_BRIGHTNESS 1
 
 /*
  * Brightness adjustment factors
