@@ -147,3 +147,6 @@ WIFI_DRIVER_FW_PATH_STA := "/system/etc/wifi/bcmdhd_sta.bin"
 
 # Lockscreen real battery display RR
 BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
+
+# BLN
+BOARD_HAS_BLN := true
