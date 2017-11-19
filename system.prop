@@ -1,5 +1,5 @@
 # ART
-dalvik.vm.dex2oat-swap=false
+# dalvik.vm.dex2oat-swap=false
 
 # Audio
 audio.offload.disable=1

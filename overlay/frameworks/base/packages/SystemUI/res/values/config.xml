@@ -52,7 +52,4 @@
          <!-- Allow Flashlight service to use wakelock -->
     <bool name="flashlight_use_wakelock">false</bool>
 
-    <!-- Doze: pulse parameter - how long does it take to fade in after an intent? -->
-    <integer name="doze_pulse_duration_in_intent">0</integer>
-
 </resources>
