@@ -79,8 +79,5 @@ persist.timed.enable=true
 # WiFi
 wifi.interface=wlan0
 
-# Google assistant
-ro.opa.eligible_device=true
-
 # Hack for Youtube
 sys.display-size=3840x2160
