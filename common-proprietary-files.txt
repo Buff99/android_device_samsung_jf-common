@@ -1,6 +1,10 @@
 # ADSP
 lib/libadsprpc.so
 
+# AptX
+vendor/lib/libaptX-1.0.0-rel-Android21-ARMv7A.so
+vendor/lib/libaptXScheduler.so
+
 # Audio
 lib/libacdbloader.so
 lib/libaudcal.so
